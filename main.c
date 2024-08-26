@@ -5,14 +5,50 @@
 const int inf_roots = 8;
 int lin(double *x1, double *x2, double a, double b, double c);
 int kvadrat(double *x1, double * x2, double a, double b, double c);
-
+int vvblvod (double *x1, double *x2, int n_roots);
+int solve_sq(double *x1, double *x2, double a, double b, double c);
+////////
+int vv( double x1, double x2, int n_roots, double * a ,double * b, double  * c)
+{
+// ввод
+    while(scanf ("%lf%lf%lf",  a, b, c) != 3)
+    {
+        printf("Давай другое\n");
+        while(getchar()!='\n') { }
+    }
+    // решение
+}
+int vvblvod( double x1, double x2, int n_roots)
+{
+    switch (n_roots)
+    {
+        case 0:
+            printf("Нет корней");
+            break;
+        case 1:
+            printf("%lf\n",x1);
+            printf("1 корень");
+            break;
+        case 2:
+            printf("%lf%lf\n",x1,x2);
+            printf("2 корня");
+            break;
+        case 8:
+            printf("Бесконечное число корней");
+            break;
+        default:
+            printf("ошибка");
+            break;
+    }
+}
+////////
 
 int solve_sq(double *x1, double *x2, double a, double b, double c)
 {
 int n_roots;
 if (a == 0)
     {
-        n_roots = lin( x1, x2,  a,  b,  c);
+        n_roots = lin(x1, x2,  a,  b,  c);
     }
     else
     {
@@ -70,31 +106,11 @@ int main()
     double x1 = 0;
     double x2 = 0;
     int n_roots = 0;
-    // ввод
-    scanf ("%lf%lf%lf", &a, &b, &c);
-    // решение
+    vv( x1, x2, n_roots, & a,& b,& c);
+
     n_roots = solve_sq( &x1, &x2, a, b, c);
     // вывод
-    switch (n_roots)
-    {
-        case 0:
-            printf("Нет корней");
-            break;
-        case 1:
-            printf("%lf\n",x1);
-            printf("1 корень");
-            break;
-        case 2:
-            printf("%lf%lf\n",x1,x2);
-            printf("2 корня");
-            break;
-        case 8:
-            printf("Бесконечное число корней");
-            break;
-        default:
-            printf("ошибка");
-            break;
-    }
+    vvblvod(x1,x2, n_roots);
 }
 
 
