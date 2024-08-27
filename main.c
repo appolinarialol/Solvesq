@@ -3,12 +3,31 @@
 #include <math.h>
 
 const int inf_roots = 8;
+
 int lin(double *x1, double *x2, double a, double b, double c);
 int kvadrat(double *x1, double * x2, double a, double b, double c);
-int vvblvod (double *x1, double *x2, int n_roots);
+int vvblvod (double x1, double x2, int n_roots);
 int solve_sq(double *x1, double *x2, double a, double b, double c);
-////////
-int vv( double x1, double x2, int n_roots, double * a ,double * b, double  * c)
+int vv(double * a ,double * b, double  * c) ;
+//
+int main()
+{
+    // начало
+    double  a = 0;
+    double  b = 0;
+    double  c = 0;
+    double x1 = 0;
+    double x2 = 0;
+    int n_roots = 0;
+
+    vv(& a,& b,& c);
+
+    n_roots = solve_sq( &x1, &x2, a, b, c);
+    // вывод
+    vvblvod(x1,x2, n_roots);
+}
+//
+int vv( double * a ,double * b, double  * c)
 {
 // ввод
     while(scanf ("%lf%lf%lf",  a, b, c) != 3)
@@ -97,21 +116,6 @@ int kvadrat(double *x1, double * x2, double a, double b, double c)
     }
 }
 ///////////////////////////////////////////////////////////////////
-int main()
-{
-    // начало
-    double  a = 0;
-    double  b = 0;
-    double  c = 0;
-    double x1 = 0;
-    double x2 = 0;
-    int n_roots = 0;
-    vv( x1, x2, n_roots, & a,& b,& c);
-
-    n_roots = solve_sq( &x1, &x2, a, b, c);
-    // вывод
-    vvblvod(x1,x2, n_roots);
-}
 
 
 /////////////////////////////////////////////////////////////////
